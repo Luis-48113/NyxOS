@@ -2,6 +2,7 @@
 #define CPU_H
 
 #include <stdint.h>
+#include <stddef.h>
 
 typedef struct {
     char vendor[13];

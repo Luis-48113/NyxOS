@@ -1,6 +1,5 @@
 #include "cpu.h"
-#include "../../../lib/string.h"
-#include "../../../include/stddef.h"
+#include "../../lib/string.h"
 
 static cpu_info_t cpu_info;
 static int cpu_initialized = 0;
