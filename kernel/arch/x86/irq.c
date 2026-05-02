@@ -5,13 +5,6 @@
 static void (*irq_handlers[16])(void) = {NULL};
 static uint8_t irq_mask = 0xFF;
 
-static void pic_send_eoi(uint8_t irq) {
-    if (irq >= 8) {
-        outb(PIC2_CMD, 0x20);
-    }
-    outb(PIC1_CMD, 0x20);
-}
-
 static void outb(uint16_t port, uint8_t val) {
     __asm__ volatile("outb %0, %1" : : "a"(val), "Nd"(port));
 }
@@ -20,6 +13,13 @@ static uint8_t inb(uint16_t port) {
     uint8_t ret;
     __asm__ volatile("inb %1, %0" : "=a"(ret) : "Nd"(port));
     return ret;
+}
+
+static void pic_send_eoi(uint8_t irq) {
+    if (irq >= 8) {
+        outb(PIC2_CMD, 0x20);
+    }
+    outb(PIC1_CMD, 0x20);
 }
 
 void irq_init(void) {
