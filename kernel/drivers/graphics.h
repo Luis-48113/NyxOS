@@ -5,12 +5,7 @@
 #include "fb.h"
 #include "../../include/multiboot.h"
 
-/* Color structure */
-typedef struct {
-    uint8_t r, g, b;
-} color_t;
-
-/* Predefined colors */
+/* Predefined colors re-use framebuffer color_t */
 #define COLOR_BLACK   ((color_t){0, 0, 0})
 #define COLOR_WHITE   ((color_t){255, 255, 255})
 #define COLOR_RED     ((color_t){255, 0, 0})
