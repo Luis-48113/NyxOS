@@ -56,10 +56,10 @@ irq_common:
 	push %es
 	push %fs
 	push %gs
-	pushd %eax
-	pushd %ebp
-	pushd %esi
-	pushd %edi
+	push %eax
+	push %ebp
+	push %esi
+	push %edi
 	push %ebx
 	push %ecx
 	push %edx
